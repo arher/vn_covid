@@ -1,11 +1,11 @@
 start:
   - text: Poco a poco el mundo se sumió en un frenezí de angustia, aún cuando no quize creerlo.
-  - text: La discriminación, los cierres de frontera... me parecían tan lejanos.
-  - text: los recientes eventos en Bolivia aún no se habían calmado, y de repente...
+  - text: La discriminación, los cierres de frontera... me parecían tan extraños.
+  - text: Los recientes eventos en Bolivia aún no se habían calmado, y de repente...
   - scene: dia_1_roxy
 
 dia_1_roxy:
-  - play morningBGM:
+  - play diaBGM: LOOPED
   - show escuela: WITH FADE CONTINUE
   - show roxy: feliz AT CENTER WITH FADE
   - roxy says: ¿Escuchaste las Noticias?
@@ -19,14 +19,15 @@ dia_1_roxy:
     - "Elecciones":
       - yo says: Las campañas de las elecciones de mayo estan peor!
       - roxy says normal: Uff, ojalá no pase nada grave esta vez.
+  - effect SHAKE:
   - roxy says normal: No, no, no es eso, sino que hay rumores de que cerrarán el colegio por eso de la corona.
   - roxy says: Que dice que está más grave la situación en otros paises!
   - roxy says triste: ¿Será que ya llegó la enfermedad esa acá?
   - yo says: La verdad yo creo que son sólo noticias falsas para asustar a la gente.
   - roxy says sorprendida: ¿En serio crees eso?
   - yo says: Claro pues! la mayoría de los bichos no sobreviven aquí en la Altura,
-  - yo says: así como cuando los gauchos vienen a jugar a La Paz, ja, ja, ja.
-  - roxy says feliz: je, je, je. Espero sea así.
+  - yo says: Así como cuando los gauchos vienen a jugar a La Paz, ja, ja, ja.
+  - roxy says feliz: Je, je, je. Espero sea así.
   - roxy says normal: Bueno, debo ir a ayudar a mi mamá en la tienda, nos vemos luego.
   - hide roxy: WITH FADE
   - yo says: Adiós!
@@ -38,13 +39,13 @@ dia_1_jose:
   - yo says: ¿eh, tu también?
   - jose says feliz: ¿Qué?
   - yo says: ¿Qué de qué?
-  - jose says: no lo sé, tu dime.
+  - jose says: No lo sé, tu dime.
   - yo says: Roxy dice que tal vez cierren el colegio por la corona.
   - jose says: ¿Acaso? nooo creo, además yo decía que Ronaldinho está preso en Paraguay.
   - yo says: pfff, ¿Tú no crees en eso del corona?
   - jose says normal: ¿Del coronavirus? creo yo que no hay porqué preocuparse. Según los chinos es como un resfrío pero mas fuertecito.
   - yo says: Pero dicen que los viejitos se mueren...
-  - jose says: Sólo los más débiles, o que ya estaban con otra enfermedad, aquí comiendo P'esque no nos pasará nada, yaaa.
+  - jose says feliz: Sólo los más débiles, o que ya estaban con otra enfermedad, aquí comiendo P'esque no nos pasará nada, yaaa.
   - yo says: ja, ja, ja
   - jose says feliz: Ya debo irme, tengo partido y voy retrasado, Chauu!
   - hide ALL: WITH FADE
@@ -55,11 +56,14 @@ dia_1_jose:
   - scene: endGame
 
 retrospeccion_1:
+  - show dormitorio: WITH FADE CONTINUE
+  - play esperanzaBGM: LOOPED
   - yo says: Ya ha pasado un mes...
   - text: El gobierno decretó el cierre de colegios, y luego una cuarentena general.
   - text: Aún no dijeron que pasará con las clases y los trabajos.
   - text: Mis papás están preocupados más que todo por la comida y el dinero. No me dejan salir ni a comprar refresco.
-  - yo says: Creo que llamaŕe a Roxy.
+  - yo says: Creo que llamaré a Roxy.
+  - show phone1: WITH FADE AT 200,400
   - play ringtoneSFX:
   - show roxy: normal AT RIGHT WITH CUT
   - roxy says: ¡Aló!
@@ -95,10 +99,13 @@ retrospeccion_1:
   - yo says: No te preocupes, todo saldrá bien. Adiosito!
   - roxy says: Adios! *CLICK*
   - hide roxy: WITH CUT
+  - hide phone1: WITH FADE
   - wait: 300
   - scene: invitacion_wally
 
 invitacion_wally:
+  - effect SHAKE:
+  - show phone1: WITH FADE AT 200,400
   - play ringtoneSFX2:
   - yo says: ¿Eh? ¿ah? quién se atreve a perturbar mi descanso?
   - yo says: Ah! es el Joselo, ¿en qué andará ahora?
@@ -135,28 +142,192 @@ invitacion_wally:
   - if ({jose_wally}):
     - yo says: Mejor me apuro así no empiezan sin mí...
   - wait: 500
-  - text: quién diría, que luego de dos semanas, toda la familia del Joselo agarrarían el Covid.
-
-
-endGame:
   - hide ALL:
+  - text: Quién diría, que luego de dos semanas, toda la familia del Joselo agarrarían el Covid.
+  - scene: dia_45
+
+dia_45:
+  - show dormitorio: WITH FADE CONTINUE
+  - play tristeBGM: LOOPED
+  - if ({jose_wally}):
+    - text: Desde que me avisó, estoy paranoico, mi garganta me duele sin motivo aparente.
+    - text: Obviamente, mis papás se enojaron muchísimo, y ellos también están preocupados.
+    - var probabilidad: 1
+  - else:
+    - text: A mi papá tampoco le fue bien, uno de sus amigos del trabajo murió por covid. Y justo el que se sentaba a su lado.
+    - var probabilidad: 0
+  - text: Ayer todos nos hicimos una prueba de Covid PCR. Pero...
+  - text: Realmente puedo estar enfermo?
+  - choice:
+    - "Me lavo las manos":
+      - text: Suelo lavarme las manos, aún cuando no salgo, y sé que mi mamá y papá también lo hacen.
+    - "No me lavo frecuentemente":
+      - var probabilidad: "probabilidad + 1"
+      - text: Como no salgo mucho, no me lavo las manos muy seguido.
+  - choice:
+    - "Uso el Barbijo correctamente":
+      - text: Cuando salgo trato de no tocar mi barbijo, y siempre cubre mi nariz.
+      - if ({jose_wally}):
+        - text: Solo ese día me saqué pero no lo volví a hacer.
+    - "Para qué el Barbijo?":
+      - var probabilidad: "probabilidad + 1"
+      - text: El barbijo solo molesta al respirar y creo que eso afecta más a la hora de enfermarse.
+  - choice:
+    - "Guardar distancia":
+      - if ({jose_wally}):
+        - text: Después de ese día, evité ir a lugares concurridos, aun cuando me invitaban.
+      - else:
+        - text: Evito salir, y menos a lugares concurridos.
+    - "Voy a reuniones":
+      - var probabilidad: "probabilidad + 1"
+      - text: Me encontré varias veces con el Joselo y otros amigos, eso sí, siempre reunidos entre nosotros nomás.
+  - choice:
+    - "Limpiar Dormitorio":
+      - text: Me gusta ventilar y limpiar mi cuarto, y mi mamá anda desinfectando la puerta de entrada.
+    - "Mantener Todo Cerrado":
+      - var probabilidad: "probabilidad + 1"
+      - text: Creo que si mi cuarto se mantiene cerrado, es menos probable que entre el virus a mi casa.
+  - wait: 300
+  - text: Mamá acaba de llamarme, creo que ya tiene los resultados...
+  - if ({probabilidad} == 0):
+    - yo says: Qué alivio!
+    - text: Al parecer salimos negativo!
+    - text: Ahora papá esta poniendo reglas más estrictas, para cambiarse de ropa y lavarse las manos al salir y al llegar.
+  - else:
+    - yo says: Oh no!
+    - if ({probabilidad} > 2):
+      - text: Acaba de decirme que todos estamos contagiados. ¡Qué desgracia!
+    - else:
+      - text: Acaba de decirme que salí positivo para coronavirus. ¡Qué desgracia!
+    - text: De la nada mi garganta me empieza a picar. Creo que estoy perdiendo el olfato.
+  - wait: 500
+  - hide ALL:
+  - scene: pesame_jose
+
+pesame_jose:
+  - show dormitorio: WITH FADE CONTINUE
+  - effect SHAKE:
+  - show phone1: WITH FADE AT 200,400
+  - play ringtoneSFX2:
+  - yo says: Ah! es el Joselo, ¿Cómo estará?
+  - show jose: tristeN AT RIGHT WITH CUT
+  - yo says: Hola, ¿Cómo estás?
+  - if ({probabilidad} == 0):
+    - play esperanzaBGM: LOOPED
+    - jose says: Aquí nomas, pasando la enfermedad, más bien no nos agarró tan fuerte como a otros.
+    - yo says: Eso es bueno.
+    - jose says: No olvides cuidarte tu y tu familia, aquí nos llevamos el susto.
+    - yo says: Sí, tu también cuidate.
+  - else:
+    - jose says: Estoy triste, ayer fue la cremación de mi papá... Ni si quiera pudimos despedirnos...
+    - yo says: Que pena..
+    - jose says: Solo quería avisarte del velorio virtual que haremos para mis tíos...
+    - yo says: Entiendo, mis pésames sinceramente...
+  - jose says: Bueno Adios. *CLICK*
+  - hide jose: WITH CUT
+  - hide phone1: WITH FADE
+  - scene: pesame_roxy
+
+pesame_roxy:
+  - effect SHAKE:
+  - show phone1: WITH FADE AT 200,400
+  - play ringtoneSFX:
+  - yo says: Ahora es Roxy quien llama.
+  - show roxy: tristeN AT RIGHT WITH CUT
+  - yo says: Hola!
+  - roxy says: Hola, Como vas?
+  - if ({probabilidad} == 0):
+    - yo says: Aqui tranquilo y tu?
+  - else:
+    - yo says: "*COF* *COF* Aqui pasando la enfermedad y tu?"
+  - if ({roxy_abuelos}):
+    - play tristeBGM: LOOPED
+    - roxy says: Triste, me acaban de avisar que uno de mis abuelitos falleció y el otro está mal tambien.
+    - yo says: Mis sentidas condolencias.
+    - roxy says: Quién diría que esta enfermedad es tan contagiosa.
+    - roxy says: La verdad sólo quería escucharte un rato. 
+    - roxy says: Tampoco quiero molestarte más. Adiós *CLICK*
+  - else:
+    - roxy says felizN: Aquí queriendo saber como estás.
+    - if ({probabilidad} == 0):
+      - yo says: Mas bien no nos agarró en mi casa, y el Joselo dice que está bien nomás.
+      - roxy says: ¡Qué bueno!
+    - else:
+      - yo says: Aquí un poco mal, pero creo que ya pasará. La verdad no me siento tan mal.
+    - roxy says indiferenteN: Trata de no descuidarte, y de alimentarte bien.
+    - yo says: Esta bien, esta bien.
+    - roxy says felizN: Espero esto pase, y podamos vernos pronto.
+    - yo says: Sí, yo también.
+    - roxy says: Adios *CLICK*
+  - hide roxy: WITH CUT
+  - hide ALL:
+  - if ({probabilidad} == 0):
+    - scene: epilogo_feliz
+  - else:
+    - if ({probabilidad} >= 4):
+      - scene: epilogo_fatal
+    - else:
+      - scene: epilogo_triste
+
+epilogo_feliz:
+  - play diaBGM: LOOPED
+  - text: Creo que tuvimos suerte. Pero en realidad, es el esfuerzo que hace la gente por cuidarse.
+  - text: Lavarse las manos, desinfectarse y usar bien el barbijo...
+  - text: Mientras pongamos un granito de arena, entre todos superaremos esta enfermedad.
+  - text: " - FIN - (1/3)"
+  - scene: creditos
+
+epilogo_triste:
+  - play tristeBGM: LOOPED
+  - text: Mientras me recupero de la enfermedad, me pongo a pensar en ello.
+  - text: ¿Acaso es culpa del Gobierno?, ¿o de algun ser Superior?
+  - text: No. Es culpa de nosotros mismos, por no cuidarnos y cuidar a otros.
+  - yo says: "*COF* *COF*"
+  - text: Tal vez tengo suerte pero ¿Cómo será la vida tras pasar la enfermedad?
+  - text: Algunos dicen que uno se puede volver a enfermar. Entonces no podemos Bajar la guardia. Es necesario tomar conciencia y cuidarse.
+  - yo says: "*COF* *COF*"
+  - text: Una lúgubre y fria noche acaricia mi cara, calmando y a la vez avivando mi fiebre...
+  - text: " - FIN - (2/3)"
+  - scene: creditos
+
+epilogo_fatal:
+  - play tristeBGM: LOOPED
+  - yo says: "*COF* *COF*"
+  - wait: 500
+  - yo says: "*COF* *COF*"
+  - text: La espera es larga, los médicos corren frenéticamente de un lado a otro.
+  - text: Si bien tuve suerte de conseguir una cama en el hospital. Mi papá no tiene tanta suerte para conseguir una sala de terapia intensiva.
+  - yo says: "*COF* *COF*"
+  - text: No sé si pasaremos la enfermedad. Ahora me arrepiendo de no haberme cuidado mejor.
+  - text: Debí hacer caso a mis papás o incluso yo mismo insistirles en cuidarse más.
+  - text: Ya no supe más del Joselo... ¿Será que está en una situación parecida?
+  - text: ¿Cómo estará Roxy?, Espero esté bien...
+  - text: ¿Como estará mi Familia?
+  - yo says: "*COF* *COF*"
+  - text: Sólo Dios sabe ahora...
+  - text: " - FIN - (3/3)"
+  - scene: creditos
+
+creditos:
   - effect ROLLINGCREDITS:
     endGame: true
     text:
-      - Concientizacion
-      - Guion por arher
+      - Gracias por Jugar
+      - null
+      - Conciencia CoVID
+      - Guion por ArHer
       - null
       - RenJS.V2 creado por
       - lunafromthemoon y RockDaFox
       - null
       - null
-      - Gracias por Jugar
-      - null
       - fondos e imágenes por
       - konett
+      - mugenjohncel
       - null
       - diseño de personajes por
-      - Sutemos
+      - Sutemo
+      - generador por exuin
       - null
       - musica por
-      - Evan Schaeffer
+      - Bellwo

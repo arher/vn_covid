@@ -1,12 +1,12 @@
 backgrounds:
   escuela: assets/backgrounds/school_front_morning.jpg
   escuela_tarde: assets/backgrounds/school_front_afternoon.jpg
-  room_night_light: assets/backgrounds/room_night_light.jpg
+  dormitorio: assets/backgrounds/room_morning_light_on.jpg
 
 characters:
   yo:
     displayName: Yo
-    speechColour: "#4E8276"
+    speechColour: "#71d1bc"
   roxy:
     displayName: Roxana
     speechColour: "#ca90cf"
@@ -17,6 +17,9 @@ characters:
       molesta: assets/characters/roxana_molesta.png
       triste: assets/characters/roxana_triste.png
       sorprendida: assets/characters/roxana_sorprendida.png
+      felizN: assets/characters/roxana_feliz_negro.png
+      indiferenteN: assets/characters/roxana_indiferente_negro.png
+      tristeN: assets/characters/roxana_triste_negro.png
   jose:
     displayName: Jose Luis
     speechColour: "#CFBA7C"
@@ -26,15 +29,18 @@ characters:
       enojado: assets/characters/jose_enojado.png
       gritando: assets/characters/jose_gritando.png
       triste: assets/characters/jose_triste.png
+      tristeN: assets/characters/jose_triste_negro.png
 
 
 cgs:
-  phone1: assets/objects/phone1.png
+  phone1: assets/objects/pda_apps_grahite.png
   phone2: assets/objects/phone2.png
 
 music:
-  rollingCredits: assets/audio/Evan_Schaeffer_-_01_-_Aqueduct.mp3
-  morningBGM: assets/audio/Evan_Schaeffer_-_03_-_Glow.mp3
+  diaBGM: assets/gui/dos_fuerzas.mp3
+  tristeBGM: assets/audio/forest_flowers.mp3
+  esperanzaBGM: assets/audio/nostalgia_mundo.mp3
+  adiosBGM: assets/audio/adios_ilusion.mp3
 sfx:
   ringtoneSFX: assets/audio/nokia6210-24-elise.mp3
   ringtoneSFX2: assets/audio/alcatel-top_secret.mp3

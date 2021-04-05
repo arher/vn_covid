@@ -47,14 +47,14 @@ config:
         'y': 455
         x: 542
         assetType: spritesheets
-    backgroundMusic: Evan_Schaeffer_-_01_-_Aqueduct
-    labels:
-      - x: 23
-        'y': 30
-        size: 43
-        text: ¡En Español!
-        font: fontsaudimat-mono
-        color: '#AC8484'
+    backgroundMusic: dos_fuerzas
+    # labels:
+    #   - x: 23
+    #     'y': 30
+    #     size: 43
+    #     text: ¡En Español!
+    #     font: fontsaudimat-mono
+    #     color: '#AC8484'
   settings:
     background:
       id: asset16
@@ -448,9 +448,9 @@ assets:
       fileName: fontsfontsaudimat-mono.ttf
       name: fontsaudimat-mono
   audio:
-    Evan_Schaeffer_-_01_-_Aqueduct:
-      fileName: audioEvan_Schaeffer_-_01_-_Aqueduct.mp3
-      name: Evan_Schaeffer_-_01_-_Aqueduct
+    dos_fuerzas:
+      fileName: dos_fuerzas.mp3
+      name: dos_fuerzas
       type: music
 madeWithRenJSBuilder: true
 assetsPath: assets/gui/
