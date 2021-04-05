@@ -1,0 +1,162 @@
+start:
+  - text: Poco a poco el mundo se sumió en un frenezí de angustia, aún cuando no quize creerlo.
+  - text: La discriminación, los cierres de frontera... me parecían tan lejanos.
+  - text: los recientes eventos en Bolivia aún no se habían calmado, y de repente...
+  - scene: dia_1_roxy
+
+dia_1_roxy:
+  - play morningBGM:
+  - show escuela: WITH FADE CONTINUE
+  - show roxy: feliz AT CENTER WITH FADE
+  - roxy says: ¿Escuchaste las Noticias?
+  - wait: 300
+  - yo says: ¿Qué noticias?
+  - roxy says molesta: ¿Acaso vives debajo de una piedra?
+  - choice:
+    - "Goleada":
+      - yo says: Escuché que San José goleó a Oriente 4-1 !!!
+      - roxy says feliz: Cierto! espero sumen más puntos!
+    - "Elecciones":
+      - yo says: Las campañas de las elecciones de mayo estan peor!
+      - roxy says normal: Uff, ojalá no pase nada grave esta vez.
+  - roxy says normal: No, no, no es eso, sino que hay rumores de que cerrarán el colegio por eso de la corona.
+  - roxy says: Que dice que está más grave la situación en otros paises!
+  - roxy says triste: ¿Será que ya llegó la enfermedad esa acá?
+  - yo says: La verdad yo creo que son sólo noticias falsas para asustar a la gente.
+  - roxy says sorprendida: ¿En serio crees eso?
+  - yo says: Claro pues! la mayoría de los bichos no sobreviven aquí en la Altura,
+  - yo says: así como cuando los gauchos vienen a jugar a La Paz, ja, ja, ja.
+  - roxy says feliz: je, je, je. Espero sea así.
+  - roxy says normal: Bueno, debo ir a ayudar a mi mamá en la tienda, nos vemos luego.
+  - hide roxy: WITH FADE
+  - yo says: Adiós!
+  - scene: dia_1_jose
+
+dia_1_jose:
+  - show jose: AT CENTER WITH FADE
+  - jose says: Hola, ¿Escuchaste las Noticias?
+  - yo says: ¿eh, tu también?
+  - jose says feliz: ¿Qué?
+  - yo says: ¿Qué de qué?
+  - jose says: no lo sé, tu dime.
+  - yo says: Roxy dice que tal vez cierren el colegio por la corona.
+  - jose says: ¿Acaso? nooo creo, además yo decía que Ronaldinho está preso en Paraguay.
+  - yo says: pfff, ¿Tú no crees en eso del corona?
+  - jose says normal: ¿Del coronavirus? creo yo que no hay porqué preocuparse. Según los chinos es como un resfrío pero mas fuertecito.
+  - yo says: Pero dicen que los viejitos se mueren...
+  - jose says: Sólo los más débiles, o que ya estaban con otra enfermedad, aquí comiendo P'esque no nos pasará nada, yaaa.
+  - yo says: ja, ja, ja
+  - jose says feliz: Ya debo irme, tengo partido y voy retrasado, Chauu!
+  - hide ALL: WITH FADE
+  - yo says: Suerte!
+  - text: Quién diría que sería la ultima vez que viera a mis amigos durante un laaargo tiempo...
+  - wait: 300
+  - scene: retrospeccion_1
+  - scene: endGame
+
+retrospeccion_1:
+  - yo says: Ya ha pasado un mes...
+  - text: El gobierno decretó el cierre de colegios, y luego una cuarentena general.
+  - text: Aún no dijeron que pasará con las clases y los trabajos.
+  - text: Mis papás están preocupados más que todo por la comida y el dinero. No me dejan salir ni a comprar refresco.
+  - yo says: Creo que llamaŕe a Roxy.
+  - play ringtoneSFX:
+  - show roxy: normal AT RIGHT WITH CUT
+  - roxy says: ¡Aló!
+  - yo says: ¿ Como es?
+  - roxy says feliz: Hola, ¿cómo estas?
+  - yo says: Aquí nomás, ¿y tú?
+  - roxy says normal: Igual, aunque le verdad todo un caos aquí en la Tienda.
+  - yo says: ¿Ah sí? ¿por qué?
+  - roxy says triste: Los vecinos ya no vienen tan seguido, por miedo a contagiarse,
+  - roxy says: y los que vienen siempre piden lo mismo, alcohol, gel, ¡y barbijos! ¡dichosos barbijos!
+  - effect SCREENSHAKE:
+  - yo says: Er, bueno, es lo que están haciendo en otros países.
+  - roxy says: Sí, pero aquí no está llegando! mi mamá está consiguiendo de todas partes, y se están acabando otras cosas.
+  - yo says: Ahm, ¿y cómo están haciendo con el dinero que les pagan?
+  - roxy says normal: Por ahora es lavarse las manos todo el tiempo. Porque el alcohol se termina rápido.
+  - roxy says feliz: Si vieras como están mis manos, je, je, je.
+  - yo says: ja, ja, ja
+  - roxy says normal: ¿ Y tu ya saliste?
+  - yo says: No, la verdad es que no me dejan salir a niguna parte.
+  - roxy says: Que molestia, mi mamá dice que se calme un poco las cosas, e iremos al campo donde mis abuelitos, que ahí no llegó el covid.
+  - yo says: Que suerte, ojalá yo pudiera ir al campo.
+  - roxy says triste: Oye pero, tu no crees que sea peligroso salir de la ciudad?
+  - choice:
+    - "No creo que haya problema":
+      - var roxy_abuelos: true
+      - yo says: No creo que haya problema con ir a un lugar donde aun no están con cuarentena. Además tampoco es que estés enferma tú o tu mamá.
+      - roxy says feliz: Si creo que tienes razón. Además los extraño mucho.
+    - "Tal vez sea mejor no ir":
+      - var roxy_abuelos: false
+      - yo says: La verdad tal vez sería bueno quedarse nomás. además ¿quién atendería la tienda si se van las dos?
+      - roxy says normal: Ahm, bueno eso si. además que necesitamos la plata también.
+  - roxy says normal: Bueno, iré a ayudar a mi mamá, además lo pensaré un poco haber que le digo.
+  - yo says: No te preocupes, todo saldrá bien. Adiosito!
+  - roxy says: Adios! *CLICK*
+  - hide roxy: WITH CUT
+  - wait: 300
+  - scene: invitacion_wally
+
+invitacion_wally:
+  - play ringtoneSFX2:
+  - yo says: ¿Eh? ¿ah? quién se atreve a perturbar mi descanso?
+  - yo says: Ah! es el Joselo, ¿en qué andará ahora?
+  - show jose: normal AT RIGHT WITH CUT
+  - yo says: ¡Aló!
+  - jose says feliz: ¿Cómo es?
+  - yo says: ¿Bien y tú?
+  - jose says: Aquí alistandome para ir al wally con mis primos.
+  - yo says: ¿Acaso hay canchas abiertas?
+  - jose says: No oficialmente, pero como todos vivimos cerca, conseguimos un lugar a puerta cerrada...
+  - yo says: ¿Y no es peligroso?
+  - jose says: No para nada, además un poco de ejercicio no hace mal a la salud, ja, ja, ja.
+  - yo says: ¿Y cómo juegan con barbijos?
+  - jose says enojado: No! esas cosas no dejan respirar ni al caminar, menos al jugar!
+  - jose says normal: Mejor antes que me olvide, ¿no quieres venir a jugar? es aquicitos a 5 cuadras.
+  - yo says: Pero ¿y el control en las calles?
+  - jose says feliz: Neh, sólo controlan en los mercados y plazas, además que tampoco nos quedaremos hasta tarde.
+  - jose says normal: Nomás porque una de mis primas se resfrió y quedamos chullas.
+  - choice:
+    - "Zas! y voy y que dice":
+      - var jose_wally: true
+      - yo says: Meta cumbia, aprovecharé que mis papás fueron al mercado y llegó ahí en un santiamén.
+      - jose says feliz: Eso! no olvides traer tu vaquita para el refresco.
+      - jose says: Además no te preocupes porque sólo será familia.
+      - jose says normal: Bueno te apuras! *CLICK*
+    - "Mmmm, mejor no":
+      - var jose_wally: false
+      - yo says: Mmmm, creo que mejor me quedo viendo películas en mi casita.
+      - jose says gritando: Aj! no seas pues, aquí no te va a pasar nada.
+      - jose says enojado: Además en familia nomás va a ser.
+      - jose says normal: Bueno, pensalo nomas, tampoco quiero obligarte. *CLIK*
+  - hide jose: WITH CUT
+  - wait: 300
+  - if ({jose_wally}):
+    - yo says: Mejor me apuro así no empiezan sin mí...
+  - wait: 500
+  - text: quién diría, que luego de dos semanas, toda la familia del Joselo agarrarían el Covid.
+
+
+endGame:
+  - hide ALL:
+  - effect ROLLINGCREDITS:
+    endGame: true
+    text:
+      - Concientizacion
+      - Guion por arher
+      - null
+      - RenJS.V2 creado por
+      - lunafromthemoon y RockDaFox
+      - null
+      - null
+      - Gracias por Jugar
+      - null
+      - fondos e imágenes por
+      - konett
+      - null
+      - diseño de personajes por
+      - Sutemos
+      - null
+      - musica por
+      - Evan Schaeffer
